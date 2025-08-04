@@ -1,132 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TITAN Project</title>
-  <style>
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-        background-color: #fff;
-        color: #222;
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TITAN Project</title>
+    <style>
+      body {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          line-height: 1.6;
+          background-color: #fff;
+          color: #222;
+        }
+        header {
+          background-color: #f5f5f5;
+          padding: 1em 2em;
+          border-bottom: 1px solid #ddd;
+          text-align: center;
+        }
+      nav {
+        margin-top: 0.5em;
       }
-      header {
-        background-color: #f5f5f5;
-        padding: 1em 2em;
-        border-bottom: 1px solid #ddd;
+
+      nav a {
+          margin-right: 20px;
+          text-decoration: none;
+          color: #0366d6;
+          font-weight: 500;
+        }
+
+        nav a:hover {
+          text-decoration: underline;
+        }
+        main {
+          max-width: 800px;
+          margin: 2em auto;
+          padding: 0 1em;
+        }
+        h2 {
+          border-bottom: 1px solid #eee;
+          padding-bottom: 0.3em;
+          margin-top: 0;
+        }
+
+      .pillar {
+        margin-bottom: 2em;
+      }
+
+      .pillar-icon {
+        font-size: 1.5em;
+        margin-right: 0.5em;
+      }
+
+      footer {
         text-align: center;
+        font-size: 0.9em;
+        color: #999;
+        margin-top: 3em;
+        padding: 1em;
+        border-top: 1px solid #eee;
       }
-    nav {
-      margin-top: 0.5em;
-    }
+    </style>
+  </head>
+  <body>
 
-    nav a {
-        margin-right: 20px;
-        text-decoration: none;
-        color: #0366d6;
-        font-weight: 500;
-      }
+    <header>
+      <h1>TITAN Project: About</h1>
+      <nav>
+        <a href="index.html">About</a>
+        <a href="papers.html">Papers</a>
+        <a href="members.html">Members</a>
+        <a href="gallery.html">Gallery</a>
+      </nav>
+    </header>
 
-      nav a:hover {
-        text-decoration: underline;
-      }
-      main {
-        max-width: 800px;
-        margin: 2em auto;
-        padding: 0 1em;
-      }
-      h2 {
-        border-bottom: 1px solid #eee;
-        padding-bottom: 0.3em;
-      }
+    <main>
+      <p>
+        <strong>TITAN</strong> is a collaborative project between 
+        <strong>Singapore Management University</strong> (Center for Research on Intelligent Software Engineering) 
+        and <strong>GovTech Singapore</strong> (Cyber Security Group).
+      </p>
 
-    h2 {
-      margin-top: 0;
-    }
+      <p>
+        The project focuses on applied research and engineering to build an intelligent vulnerability discovery system 
+        that empowers developers and security teams to identify and address security issues early in the software development lifecycle.
+      </p>
 
-    .pillar {
-      margin-bottom: 2em;
-    }
+      <p>
+        To achieve this objective, TITAN is organized around four key pillars:
+      </p>
 
-    .pillar-icon {
-      font-size: 1.5em;
-      margin-right: 0.5em;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #999;
-      margin-top: 3em;
-      padding: 1em;
-      border-top: 1px solid #eee;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>TITAN Project: About</h1>
-    <nav>
-      <a href="index.html">About</a>
-      <a href="papers.html">Papers</a>
-    </nav>
-  </header>
-
-  <main>
-    <p>
-      <strong>TITAN</strong> is a collaborative project between 
-      <strong>Singapore Management University</strong> (Center for Research on Intelligent Software Engineering) 
-      and <strong>GovTech Singapore</strong> (Cyber Security Group).
-    </p>
-
-    <p>
-      The project focuses on applied research and engineering to build an intelligent vulnerability discovery system 
-      that empowers developers and security teams to identify and address security issues early in the software development lifecycle.
-    </p>
-
-    <p>
-      To achieve this objective, TITAN is organized around four key pillars:
-    </p>
-
-    <div class="pillar">
-      <h3>🧱 Data</h3>
-      <p>Design and implement a robust data engineering architecture and pipeline to acquire high-quality vulnerability data from publicly available sources.</p>
-    </div>
-
-    <div class="pillar">
-      <h3>🤖 Model</h3>
-      <p>Leverage data from the Data pillar to train high-performing machine learning models—powered by Large Code Models—to detect vulnerable commits during CI/CD workflows.</p>
-    </div>
-
-    <div class="pillar">
-      <h3>⚙️ Operation</h3>
-      <p>Adapt and fine-tune the models developed in the Model pillar to work effectively in real-world environments, helping engineers identify vulnerabilities in their own project repositories.</p>
-    </div>
-
-    <div class="pillar">
-      <h3>🛠 Infrastructure</h3>
-      <p>Build the foundational infrastructure and common services required to support the Data, Model, and Operation pillars, enabling end-to-end integration and deployment.</p>
-    </div>
-
-    <div class="pillar">
-      <h3>🖼 TITAN Architecture</h3>
-      <p>The overall system architecture of TITAN, showing the interaction between data acquisition, model training, deployment, and CI/CD integration:</p>
-      <div style="text-align: center;">
-        <img src="assets/titan-architecture.png"
-             alt="TITAN Architecture Diagram"
-             style="max-width: 80%; height: auto; border: 1px solid #ccc; padding: 8px; background: #FFFFFF;" />
+      <div class="pillar">
+        <h3>🧱 Data</h3>
+        <p>Design and implement a robust data engineering architecture and pipeline to acquire high-quality vulnerability data from publicly available sources.</p>
       </div>
-    </div>
-    
-  </main>
 
-  <footer>
-    &copy; 2025 TITAN Project
-  </footer>
+      <div class="pillar">
+        <h3>🤖 Model</h3>
+        <p>Leverage data from the Data pillar to train high-performing machine learning models—powered by Large Code Models—to detect vulnerable commits during CI/CD workflows.</p>
+      </div>
 
-</body>
-</html>
+      <div class="pillar">
+        <h3>⚙️ Operation</h3>
+        <p>Adapt and fine-tune the models developed in the Model pillar to work effectively in real-world environments, helping engineers identify vulnerabilities in their own project repositories.</p>
+      </div>
+
+      <div class="pillar">
+        <h3>🛠 Infrastructure</h3>
+        <p>Build the foundational infrastructure and common services required to support the Data, Model, and Operation pillars, enabling end-to-end integration and deployment.</p>
+      </div>
+
+      <div class="pillar">
+        <h3>🖼 TITAN Architecture</h3>
+        <p>The overall system architecture of TITAN, showing the interaction between data acquisition, model training, deployment, and CI/CD integration:</p>
+        <div style="text-align: center;">
+          <img src="assets/titan-architecture.png"
+              alt="TITAN Architecture Diagram"
+              style="max-width: 80%; height: auto; border: 1px solid #ccc; padding: 8px; background: #FFFFFF;" />
+        </div>
+      </div>
+      
+    </main>
+
+    <footer>
+      &copy; 2025 TITAN Project
+    </footer>
+
+  </body>
+  </html>
