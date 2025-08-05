@@ -63,15 +63,108 @@ a {
     color: #0366d6;
     text-decoration: none;
     transition: color 0.2s ease, text-decoration 0.2s ease;
-  }
-  
-  a:hover {
+}
+
+a:hover {
     color: #0050aa;
     text-decoration: underline;
-  }
-  
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #222;
+}
+
+header {
+    background-color: #f5f5f5;
+    padding: 1em 2em;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+nav {
+    margin-top: 0.5em;
+}
+
+nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #0366d6;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 900px;
+    margin: 2em auto;
+    padding: 0 1em;
+}
+
+h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.4em;
+    margin-top: 2em;
+    color: #222;
+}
+
+h3, h4 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+li {
+    margin-bottom: 0.6em;
+}
+
+a {
+    color: #0366d6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #0050aa;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #999;
+    margin-top: 3em;
+    padding: 1em;
+    border-top: 1px solid #eee;
+}
+
+.role {
+    font-style: italic;
+    color: #555;
+}
 </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-18XWM687MH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-18XWM687MH');
+</script>
 <body>
 
 <header>
@@ -86,14 +179,26 @@ a {
 
 <main>
     <h2>Current Members</h2>
-    <h3>PI and Co-PI</h3>
+    <h3><img src="assets/govtech-logo.png" alt="GovTech" style="height: 3em; vertical-align: middle; margin-right: 0.4em;">GovTech Team</h3>
     <ul>
-    <li><a href="https://www.linkedin.com/in/david-lo-5a659b14b" target="_blank">David Lo</a></li>
-    <li><a href="https://www.linkedin.com/in/lwin-khin-shar-b93b61113" target="_blank">Lwin Khin Shar</a></li>
-    <li><a href="https://www.linkedin.com/in/eng-lieh-ouh/" target="_blank">Eng Lieh Ouh</a></li>
+    <li><a href="https://www.linkedin.com/in/ronghwa/" target="_blank">Rong Hwa Chong</a> <span class="role">Senior Director of Cybersecurity Engineering</span></li>
+    <li><a href="https://www.linkedin.com/in/yi-de-yin-24a085158" target="_blank">Yi De Yin</a> <span class="role">Cybersecurity Engineer</span></li>
+    <li><a href="https://www.linkedin.com/in/ang-han-wei/" target="_blank">Ang Han Wei</a> <span class="role">Cybersecurity Engineer</span></li>
     </ul>
 
-    <h3>Research Scientist</h2>
+    <h3>
+        <img src="assets/smu-logo.png" alt="SMU" style="height: 3em; vertical-align: middle; margin-right: 0.4em;">
+        SMU Team
+    </h3>
+    
+    <h4>PI and Co-PI</h3>
+    <ul>
+    <li><a href="https://www.linkedin.com/in/david-lo-5a659b14b" target="_blank">David Lo</a> <span class="role">OUB Chair Professor of Computer Science; Director, Information Systems & Technology Cluster Co-Director, Centre for Research for Intelligent Software Engineering</span></li>
+    <li><a href="https://www.linkedin.com/in/lwin-khin-shar-b93b61113" target="_blank">Lwin Khin Shar</a> <span class="role">Associate Professor of Computer Science (Practice)</span></li>
+    <li><a href="https://www.linkedin.com/in/eng-lieh-ouh/" target="_blank">Eng Lieh Ouh</a> <span class="role">Associate Professor of Computer Science (Education); Director, BSc (IS) Information Systems Major</span></li>
+    </ul>
+
+    <h4>Research Scientist</h2>
     <ul>
     <li><a href="https://www.linkedin.com/in/happygirlzt/" target="_blank">Ting Zhang</a></li>
     <li><a href="https://www.linkedin.com/in/yikunli/" target="_blank">Yikun Li</a></li>
@@ -103,7 +208,7 @@ a {
     <li><a href="https://www.linkedin.com/in/yue-knox-liu-49305a25b/" target="_blank">Yue Liu</a></li>
     </ul>
 
-    <h3>Research Engineer</h2>
+    <h4>Research Engineer</h2>
     <ul>
     <li><a href="https://www.linkedin.com/in/ngoc-tan-bui-129031257/" target="_blank">Tan Bui</a></li>
     <li><a href="https://vn.linkedin.com/in/huuhungn" target="_blank">Nguyen Huu Hung</a></li>
@@ -117,19 +222,20 @@ a {
     <li><a href="https://www.linkedin.com/in/jinfeng-jiang-2b0483378/" target="_blank">Jinfeng Jiang</a></li>
     </ul>
 
-    <h3>Visiting Student</h2>
+    <h4>Visiting Student</h2>
     <ul>
     <li><a href="https://www.linkedin.com/in/tung-lam-nguyen-659209265/" target="_blank">Tung Lam Nguyen</a></li>
     </ul>
 
     <h2>Alumni</h2>
     <ul>
-    <li><a href="https://www.linkedin.com/in/kanghj/" target="_blank">Hong Jin Kang</a>: Lecturer at University of Sydney</li>    
-    <li><a href="https://www.linkedin.com/in/yindu-su-65ba9b31a/" target="_blank">Yindu Su</a>: Algorithm Engineer at Xiaohongshu</li>
-    <li><a href="https://www.linkedin.com/in/trang-dang-yen-511a2b250" target="_blank">Trang Dang Yen</a>: PhD student at University of Sydney</li>
-    <li><a href="https://www.linkedin.com/in/yiran-cheng-82b014342/" target="_blank">Yiran Cheng</a>: PhD student at Chinese Academy of Sciences</li>
-    <li><a href="https://www.linkedin.com/in/mycyho/" target="_blank">Chiok Yew Ho</a>: PhD student at Chinese University of Hong Kong</li>
-    <li><a href="https://www.linkedin.com/in/xiang-lan-0aba58173/" target="_blank">Xiang Lan</a>: PhD student at North Carolina State University</li>
+    <li><a href="https://www.linkedin.com/in/frankliauw/" target="_blank">Frank Liauw</a></li>   
+    <li><a href="https://www.linkedin.com/in/kanghj/" target="_blank">Hong Jin Kang</a> <span class="role">Lecturer at University of Sydney</span></li>    
+    <li><a href="https://www.linkedin.com/in/yindu-su-65ba9b31a/" target="_blank">Yindu Su</a> <span class="role">Algorithm Engineer at Xiaohongshu</span></li>
+    <li><a href="https://www.linkedin.com/in/trang-dang-yen-511a2b250" target="_blank">Trang Dang Yen</a> <span class="role">PhD student at University of Sydney</span></li>
+    <li><a href="https://www.linkedin.com/in/yiran-cheng-82b014342/" target="_blank">Yiran Cheng</a> <span class="role">PhD student at Chinese Academy of Sciences</span></li>
+    <li><a href="https://www.linkedin.com/in/mycyho/" target="_blank">Chiok Yew Ho</a> <span class="role">PhD student at Chinese University of Hong Kong</span></li>
+    <li><a href="https://www.linkedin.com/in/xiang-lan-0aba58173/" target="_blank">Xiang Lan</a> <span class="role">PhD student at North Carolina State University</span></li>
     </ul>
 </main>
 
