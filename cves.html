@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TITAN CVEs</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #fff;
+      color: #222;
+    }
+    header {
+      background-color: #f5f5f5;
+      padding: 1em 2em;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    nav {
+      margin-top: 0.5em;
+    }
+    nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #0366d6;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.4em;
+      margin-top: 2em;
+      color: #222;
+    }
+    a {
+      color: #0366d6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      color: #0050aa;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #999;
+      margin-top: 3em;
+      padding: 1em;
+      border-top: 1px solid #eee;
+    }
+    .cve-stats {
+      margin: 2em 0;
+    }
+    .stat-badge {
+      display: inline-block;
+      background: #0366d6;
+      color: white;
+      padding: 0.5em 1em;
+      border-radius: 4px;
+      margin-right: 1em;
+      font-weight: 600;
+    }
+    .stat-badge.in-progress {
+      background: #6c757d;
+    }
+    .cve-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.5em;
+      margin: 2em 0;
+    }
+    .cve-card {
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      padding: 1.2em;
+      background: #f6f8fa;
+      transition: box-shadow 0.2s;
+    }
+    .cve-card:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .cve-id {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #0366d6;
+      margin-bottom: 0.5em;
+    }
+    .cve-meta {
+      margin-bottom: 0.8em;
+    }
+    .severity-badge {
+      display: inline-block;
+      padding: 0.2em 0.6em;
+      border-radius: 3px;
+      font-size: 0.75em;
+      font-weight: bold;
+      margin-right: 0.5em;
+      text-transform: uppercase;
+    }
+    .severity-critical {
+      background: #d73a49;
+      color: white;
+    }
+    .severity-high {
+      background: #fd7e14;
+      color: white;
+    }
+    .severity-medium {
+      background: #ffc107;
+      color: #000;
+    }
+    .severity-low {
+      background: #28a745;
+      color: white;
+    }
+    .cwe-badge {
+      display: inline-block;
+      padding: 0.2em 0.6em;
+      border-radius: 3px;
+      background: #e1e4e8;
+      color: #586069;
+      font-size: 0.75em;
+      font-weight: 600;
+    }
+    .cve-description {
+      color: #586069;
+      font-size: 0.9em;
+      line-height: 1.5;
+      margin: 0.8em 0;
+    }
+    .cve-info {
+      font-size: 0.85em;
+      color: #6a737d;
+      margin-top: 0.8em;
+      padding-top: 0.8em;
+      border-top: 1px solid #e1e4e8;
+    }
+    .cve-info div {
+      margin: 0.3em 0;
+    }
+  </style>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-18XWM687MH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-18XWM687MH');
+</script>
+<script>
+  function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    const headers = lines[0].split(',').map(h => h.trim());
+    const data = [];
+    for (let i = 1; i < lines.length; i++) {
+      const values = parseCSVLine(lines[i]);
+      const entry = {};
+      headers.forEach((header, index) => { entry[header] = values[index] ? values[index].trim() : ''; });
+      data.push(entry);
+    }
+    return data;
+  }
+  function parseCSVLine(line) {
+    const values = [];
+    let current = '', inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      if (char === '"') {
+        if (inQuotes && line[i + 1] === '"') { current += '"'; i++; }
+        else { inQuotes = !inQuotes; }
+      } else if (char === ',' && !inQuotes) { values.push(current); current = ''; }
+      else { current += char; }
+    }
+    values.push(current);
+    return values;
+  }
+  function getSeverityBadge(severity) {
+    if (!severity) return '';
+    const s = severity.toUpperCase();
+    const classMap = { 'CRITICAL': 'severity-critical', 'HIGH': 'severity-high', 'MEDIUM': 'severity-medium', 'LOW': 'severity-low' };
+    return `<span class="severity-badge ${classMap[s] || 'severity-low'}">${s}</span>`;
+  }
+  async function loadCVEData() {
+    try {
+      console.log('Attempting to fetch assets/cves.csv...');
+      const response = await fetch('assets/cves.csv');
+      console.log('Response status:', response.status);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const csvText = await response.text();
+      console.log('CSV loaded, length:', csvText.length);
+      
+      const cveData = parseCSV(csvText);
+      console.log('Parsed CVEs:', cveData.length);
+      
+      // Sort by severity first (Critical > High > Medium > Low), then by CVE ID
+      const severityOrder = { 'CRITICAL': 1, 'HIGH': 2, 'MEDIUM': 3, 'LOW': 4, '': 5 };
+      cveData.sort((a, b) => {
+        const sevA = (a.severity || '').toUpperCase();
+        const sevB = (b.severity || '').toUpperCase();
+        const orderA = severityOrder[sevA] || 5;
+        const orderB = severityOrder[sevB] || 5;
+        
+        if (orderA !== orderB) {
+          return orderA - orderB;
+        }
+        return (a.cve_id || '').localeCompare(b.cve_id || '');
+      });
+      
+      document.getElementById('published-count').textContent = cveData.length;
+      const cveGrid = document.getElementById('cve-grid');
+      cveGrid.innerHTML = '';
+      cveData.forEach(cve => {
+        const card = document.createElement('div');
+        card.className = 'cve-card';
+        let html = `<div class="cve-id"><a href="${cve.cve_url}" target="_blank">${cve.cve_id}</a></div>`;
+        html += `<div class="cve-meta">${cve.severity ? getSeverityBadge(cve.severity) : ''}${cve.title ? `<span class="cwe-badge">${cve.title}</span>` : ''}</div>`;
+        if (cve.description) html += `<div class="cve-description">${cve.description}</div>`;
+        if (cve.affected_software || cve.published_date) {
+          html += `<div class="cve-info">`;
+          if (cve.affected_software) html += `<div><strong>Affected:</strong> ${cve.affected_software}</div>`;
+          if (cve.published_date) html += `<div><strong>Published:</strong> ${cve.published_date}</div>`;
+          html += `</div>`;
+        }
+        card.innerHTML = html;
+        cveGrid.appendChild(card);
+      });
+    } catch (error) {
+      console.error('Detailed error:', error);
+      document.getElementById('cve-grid').innerHTML = `<p>Error loading CVE data: ${error.message}</p><p>Make sure you're running a web server (python3 -m http.server 8000) and the file assets/cves.csv exists.</p>`;
+    }
+  }
+  document.addEventListener('DOMContentLoaded', loadCVEData);
+</script>
+<body>
+  <header>
+    <h1>TITAN Project: CVEs</h1>
+    <nav>
+      <a href="index.html">About</a>
+      <a href="papers.html">Papers</a>
+      <a href="members.html">Members</a>
+      <a href="CVEs.html">CVEs</a>
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Discovered Vulnerabilities</h2>
+    <p>The TITAN project has successfully identified and disclosed the following Common Vulnerabilities and Exposures (CVEs) through our intelligent vulnerability discovery system.</p>
+    <div class="cve-stats">
+      <span class="stat-badge"><span id="published-count">0</span> Published</span>
+      <span class="stat-badge in-progress">43 In Progress</span>
+    </div>
+    <div class="cve-grid" id="cve-grid">
+      <div>Loading...</div>
+    </div>
+  </main>
+  <footer>&copy; 2025 TITAN Project</footer>
+</body>
+</html>
