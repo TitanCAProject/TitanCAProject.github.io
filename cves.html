@@ -218,7 +218,10 @@
         if (orderA !== orderB) {
           return orderA - orderB;
         }
-        return (a.cve_id || '').localeCompare(b.cve_id || '');
+        // Then sort by publication date (descending - newest first)
+        const dateA = a.published_date || a.disclosure_date || '';
+        const dateB = b.published_date || b.disclosure_date || '';
+        return dateB.localeCompare(dateA); // descending order
       });
       
       document.getElementById('published-count').textContent = cveData.length;
