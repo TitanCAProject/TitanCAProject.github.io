@@ -16,6 +16,7 @@ CVE-2025-52938,https://www.cve.org/CVERecord?id=CVE-2025-52938,CWE-125,MEDIUM,,"
 CVE-2025-52939,https://www.cve.org/CVERecord?id=CVE-2025-52939,CWE-787,CRITICAL,,"Out-of-bounds Write vulnerability in dail8859 NotepadNext (src/lua/src modules). This vulnerability is associated with program files ldebug.C, lvm.C. This issue affects NotepadNext: through v0.11.",Disclosed,2025-06-23,
 CVE-2025-66040,https://www.cve.org/CVERecord?id=CVE-2025-66040,CWE-79,LOW,,"Spotipy is a Python library for the Spotify Web API. Prior to version 2.25.2, there is a cross-site scripting (XSS) vulnerability in the OAuth callback server that allows for JavaScript injection through the unsanitized error parameter. Attackers can execute arbitrary JavaScript in the user's bro...",Disclosed,2025-11-27,
 CVE-2025-49000,https://www.cve.org/CVERecord?id=CVE-2025-49000,"CWE-400, CWE-770",LOW,,"InvenTree is an Open Source Inventory Management System. Prior to version 0.17.13, the skip field in the built-in `label-sheet` plugin lacks an upper bound, so a large value forces the server to allocate an enormous Python list. This lets any authenticated label-printing user trigger a denial-of-...",Disclosed,2025-06-03,
-CVE-2025-66409,https://www.cve.org/CVERecord?id=CVE-2025-66409,"CWE-125",MEDIUM,"ESP-IDF: Out-of-Bounds Read in ESP32 Bluetooth AVRCP Command Handling.",,Reserved,Reserved,
+CVE-2025-66409,https://www.cve.org/CVERecord?id=CVE-2025-66409,"CWE-125",MEDIUM,"ESP-IDF","Out-of-Bounds Read in ESP32 Bluetooth AVRCP Command Handling.",Reserved,Reserved,
+
 
 
