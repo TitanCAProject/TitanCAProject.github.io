@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TITAN Tools</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #fff;
+      color: #222;
+    }
+    header {
+      background-color: #f5f5f5;
+      padding: 1em 2em;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    nav {
+      margin-top: 0.5em;
+    }
+    nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #0366d6;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.4em;
+      margin-top: 2em;
+      color: #222;
+    }
+    h3 {
+      margin-top: 1.5em;
+      color: #000000;
+    }
+    a {
+      color: #0366d6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      color: #0050aa;
+      text-decoration: underline;
+    }
+    .tool-section {
+      margin-bottom: 2.5em;
+    }
+    .tool-category {
+      background: #f6f8fa;
+      border-left: 4px solid #0366d6;
+      padding: 1em 1.5em;
+      margin: 1.5em 0;
+      border-radius: 4px;
+    }
+    .tool-list {
+      margin-top: 1em;
+    }
+    .tool-item {
+      margin-bottom: 1.5em;
+    }
+    .tool-name {
+      font-weight: 600;
+      font-size: 1.1em;
+      color: #0366d6;
+    }
+    .tool-description {
+      color: #586069;
+      margin: 0.5em 0;
+    }
+    ul {
+      color: #586069;
+      margin-left: 1.5em;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #999;
+      margin-top: 3em;
+      padding: 1em;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-18XWM687MH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-18XWM687MH');
+</script>
+<body>
+  <header>
+    <h1>TITAN Project: Open-Source Tools</h1>
+    <nav>
+      <a href="index.html">About</a>
+      <a href="papers.html">Papers</a>
+      <a href="cves.html">CVEs</a>
+      <a href="tools.html">Tools</a>
+      <a href="members.html">Members</a>
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Open-Source Tool Ecosystem</h2>
+    <p>The TITAN project has developed and released several open-source tools for vulnerability detection, code analysis, and security assessment.</p>
+
+    <div class="tool-section">
+      <h3>Vulnerability Detection & Analysis</h3>
+      
+      <div class="tool-category">
+        <div class="tool-item">
+          <div class="tool-name"><a href="https://github.com/TitanCAProject/SecTor" target="_blank">SecTor</a></div>
+          <div class="tool-description">VFC (Vulnerability-Fixing Commit) classification for Java commits</div>
+        </div>
+
+        <div class="tool-item">
+          <div class="tool-name"><a href="https://github.com/TitanCAProject/PatchSeeker" target="_blank">PatchSeeker</a></div>
+          <div class="tool-description">Detecting vulnerability-fixing commits from NVD and GitHub</div>
+        </div>
+
+        <div class="tool-item">
+          <div class="tool-name"><a href="https://github.com/TitanCAProject/VulSifter" target="_blank">VulSifter</a></div>
+          <div class="tool-description">Detecting vulnerable changes in a vulnerability-fixing commit</div>
+        </div>
+
+        <div class="tool-item">
+          <div class="tool-name"><a href="https://github.com/TitanCAProject/InSA" target="_blank">InSA</a></div>
+          <div class="tool-description">Assessing vulnerability severity</div>
+        </div>
+
+        <div class="tool-item">
+          <div class="tool-name"><a href="https://github.com/TitanCAProject/VulCoCo" target="_blank">VulCoCo</a></div>
+          <div class="tool-description">Vulnerability detection using code clone analysis</div>
+        </div>
+
+        <div class="tool-item">
+          <div class="tool-name"><a href="https://github.com/TitanCAProject/R2Vul" target="_blank">R2Vul</a></div>
+          <div class="tool-description">Vulnerability detection with reinforcement learning and structured reasoning</div>
+        </div>
+
+        <div class="tool-item">
+          <div class="tool-name"><a href="https://github.com/TitanCAProject/VulTrial" target="_blank">VulTrial</a></div>
+          <div class="tool-description">Vulnerability detection using multi-agent debate system</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-section">
+      <h3>Code Synthesis</h3>
+      
+      <div class="tool-category">
+        <div class="tool-item">
+          <div class="tool-name"><a href="https://github.com/TitanCAProject/RVG" target="_blank">RVG</a></div>
+          <div class="tool-description">Vulnerable code synthesis for security testing</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-section">
+      <p style="margin-top: 2em; color: #586069;">For detailed documentation, installation instructions, and usage examples, visit our <a href="https://titancaproject.github.io/titan-tool-wiki/" target="_blank">TITAN Tools Wiki</a>.</p>
+      <p style="color: #586069;">Questions? Contact: <a href="mailto:titancaprojectsmu@gmail.com">titancaprojectsmu@gmail.com</a></p>
+    </div>
+
+  </main>
+  <footer>&copy; 2025 TITAN Project</footer>
+</body>
+</html>
