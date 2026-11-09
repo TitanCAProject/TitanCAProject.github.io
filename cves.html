@@ -232,7 +232,7 @@
       cveData.forEach(cve => {
         const card = document.createElement('div');
         card.className = 'cve-card';
-        let html = `<div class="cve-id"><a href="${cve.cve_url}" target="_blank">${cve.cve_id}</a></div>`;
+        let html = `<div class="cve-id"><a href="${cve.f}" target="_blank">${cve.cve_id}</a></div>`;
         html += `<div class="cve-meta">${cve.severity ? getSeverityBadge(cve.severity) : ''}${cve.title ? `<span class="cwe-badge">${cve.title}</span>` : ''}</div>`;
         if (cve.description) html += `<div class="cve-description">${cve.description}</div>`;
         if (cve.affected_software || cve.published_date) {
